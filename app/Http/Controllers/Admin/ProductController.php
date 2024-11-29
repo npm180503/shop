@@ -61,7 +61,7 @@ class ProductController extends Controller
                     if (isset($sizeData['active'])) {
                         $sizePrice = !empty($sizeData['price']) 
                             ? str_replace('.', '', $sizeData['price']) 
-                            : $price;
+                            : $request->get("price");
                         
                         $product->sizes()->attach($sizeId, [
                             'quantity' => $sizeData['quantity'] ?? 0,
